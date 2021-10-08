@@ -2,12 +2,16 @@ import axios from 'axios';
  export const FETCH_START = "FETCH_START"
 
 export const fetchSmurfs = () => dispatch => {
-    dispatch(fetchStart())
+    dispatch(fetchStart());
+    axios.get('http://localhost:3333/smurfs')
+    .then(res => {
+        console.log(res)
+    })
 }
 
 
 export const fetchStart = () => {
-    return {type: FETCH_START}
+    return {type: FETCH_START};
 }
 
 
