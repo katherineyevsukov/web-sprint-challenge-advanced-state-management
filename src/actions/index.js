@@ -7,13 +7,16 @@ export const SET_ERROR = "SET_ERROR";
 
 export const fetchSmurfs = () => (dispatch) => {
   dispatch(fetchStart());
-  axios.get("http://localhost:3333/smurfs")
-  .then((res) => {
-    dispatch(fetchSuccess(res.data));
-  })
-  .catch((err) => {
-      dispatch(fetchFail(`Sorry, there was an error fetching smurfs: ${err.message}`))
-  })
+  axios
+    .get("http://localhost:3333/smurfs")
+    .then((res) => {
+      dispatch(fetchSuccess(res.data));
+    })
+    .catch((err) => {
+      dispatch(
+        fetchFail(`Sorry, there was an error fetching smurfs: ${err.message}`)
+      );
+    });
 };
 
 export const addSmurf = (smurf) => (dispatch) => {
