@@ -1,3 +1,4 @@
+import { FETCH_START } from './../actions/'
 
 export const initialState = {
     smurfs: [],
@@ -5,7 +6,16 @@ export const initialState = {
     errorMessage: '',
 }
 
-const reducer = ()=>{
+const reducer = (state = initialState, action)=>{
+    switch(action.type){
+        case(FETCH_START):
+        return({
+            ...state,
+            loading: true
+        })
+        default:
+            return state;
+    }
 }
 
 //**************DO NOT EDIT ANY CODE BEYOND THIS POINT**************//
