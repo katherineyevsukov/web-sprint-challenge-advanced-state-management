@@ -26,7 +26,7 @@ const AddForm = (props) => {
     if (state.name === "" || state.position === "" || state.nickname === "") {
       setError("Name, Position, and Nickname fields must be filled out")
     } else {
-        addSmurf({id: Date.now(), ...state})
+        addSmurf(state)
     }
   };
 
