@@ -16,7 +16,7 @@ import { fetchSmurfs } from './../actions'
     }
 
     return(<div className="listContainer">
-        {smurfs.map(smurf => (<Smurf smurf={smurf}/>))}
+        {smurfs.map(smurf => (<Smurf key={smurf.id} smurf={smurf}/>))}
     </div>);
 }
 const mapStateToProps = state => {
