@@ -4,31 +4,27 @@ import { connect } from 'react-redux'
 import { fetchSmurfs } from './../actions'
 
  const SmurfList = (props)=> {
+
+    console.log(props)
     
-    const { isLoading, fetchSmurfs } = props
-    const testSmurf = {
-        id:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
-        name:'Poppa Smurf',
-        position:'Village Leader',
-        nickname: 'Pops',
-        description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
-    }
+    const { isLoading, fetchSmurfs, smurfs } = props
 
     useEffect(() => {
         fetchSmurfs()
-    })
+    }, [])
 
     if (isLoading) {
         return <h1>Loading...</h1>;
     }
 
     return(<div className="listContainer">
-        <Smurf smurf={testSmurf}/>
+        {smurfs.map(smurf => (<Smurf smurf={smurf}/>))}
     </div>);
 }
 const mapStateToProps = state => {
     return ({
-        isLoading: state.isLoading
+        isLoading: state.isLoading,
+        smurfs: state.smurfs
     })
 }
 export default connect(mapStateToProps, { fetchSmurfs })(SmurfList);
