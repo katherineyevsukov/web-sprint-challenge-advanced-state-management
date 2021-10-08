@@ -1,6 +1,8 @@
 import axios from 'axios';
  export const FETCH_START = "FETCH_START"
  export const FETCH_SUCCESS = "FETCH_SUCCESS"
+ export const ADD_SMURF = 'ADD_SMURF'
+ export const SET_ERROR = 'SET_ERROR'
 
 export const fetchSmurfs = () => dispatch => {
     dispatch(fetchStart());
@@ -17,6 +19,14 @@ export const fetchStart = () => {
 
 export const fetchSuccess = (smurfs) => {
 return {type: FETCH_SUCCESS, payload: smurfs}
+}
+
+export const addSmurf = (smurf) => {
+    return {type: ADD_SMURF, payload: smurf}
+}
+
+export const setError = (message) => {
+    return {type: SET_ERROR, payload: message}
 }
 
 
