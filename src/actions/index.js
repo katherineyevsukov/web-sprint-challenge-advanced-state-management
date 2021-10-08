@@ -10,7 +10,7 @@ export const fetchSmurfs = () => (dispatch) => {
   axios
     .get("http://localhost:3333/smurfs")
     .then((res) => {
-      dispatch(fetchSuccess(res.data)); //successful post request returns full array of old smurfs with new smurf added (including server generated id)
+      dispatch(fetchSuccess(res.data)); 
     })
     .catch((err) => {
       dispatch(
@@ -22,8 +22,8 @@ export const fetchSmurfs = () => (dispatch) => {
 export const addSmurf = (smurf) => (dispatch) => {
   axios
     .post("http://localhost:3333/smurfs", smurf)
-    .then((res) => {
-      dispatch(addSmurfSuccess(res.data));
+    .then((res) => {  
+      dispatch(addSmurfSuccess(res.data[res.data.length-1]));
     })
     .catch((err) => {
       dispatch(setError(err.message));
@@ -42,8 +42,8 @@ export const fetchFail = (message) => {
   return { type: FETCH_FAIL, payload: message };
 };
 
-export const addSmurfSuccess = (updatedSmurfList) => {
-  return { type: ADD_SMURF, payload: updatedSmurfList };
+export const addSmurfSuccess = (newSmurf) => {
+  return { type: ADD_SMURF, payload: newSmurf };
 };
 
 export const setError = (message) => {
