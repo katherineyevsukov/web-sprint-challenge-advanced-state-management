@@ -12,6 +12,10 @@ export const fetchSmurfs = () => dispatch => {
     })
 }
 
+export const addSmurf = (smurf) => dispatch => {
+    axios.post('http://localhost:3333/smurfs', smurf)
+    .then(res=> {dispatch(addSmurfSuccess(res.data))})
+}
 
 export const fetchStart = () => {
     return {type: FETCH_START};
@@ -21,8 +25,8 @@ export const fetchSuccess = (smurfs) => {
 return {type: FETCH_SUCCESS, payload: smurfs}
 }
 
-export const addSmurf = (smurf) => {
-    return {type: ADD_SMURF, payload: smurf}
+export const addSmurfSuccess = (newSmurfList) => {
+    return {type: ADD_SMURF, payload: newSmurfList}
 }
 
 export const setError = (message) => {

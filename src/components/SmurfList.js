@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 import { fetchSmurfs } from './../actions'
 
  const SmurfList = (props)=> {
-
-    console.log(props)
     
     const { isLoading, fetchSmurfs, smurfs } = props
 
