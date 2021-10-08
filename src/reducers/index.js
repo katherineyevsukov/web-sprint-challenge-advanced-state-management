@@ -34,7 +34,8 @@ const reducer = (state = initialState, action) => {
     case ADD_SMURF:
       return {
         ...state,
-        smurfs: action.payload //successful post request returns full array of old smurfs with new smurf added (including server generated id)
+        smurfs: action.payload, //successful post request returns full array of old smurfs with new smurf added (including server generated id)
+        errorMessage: false
       };
     case SET_ERROR:
       return {
