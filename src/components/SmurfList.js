@@ -3,6 +3,7 @@ import Smurf from './Smurf';
 import { connect } from 'react-redux'
 
  const SmurfList = (props)=> {
+    
     const { isLoading } = props
     const testSmurf = {
         id:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",

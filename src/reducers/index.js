@@ -2,7 +2,7 @@ import { FETCH_START } from './../actions/'
 
 export const initialState = {
     smurfs: [],
-    loading: false,
+    isLoading: false,
     errorMessage: '',
 }
 
