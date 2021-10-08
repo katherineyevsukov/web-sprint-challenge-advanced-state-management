@@ -11,7 +11,6 @@ const AddForm = (props) => {
     description: "",
   });
 
-  //remove when error state is added
   const { errorMessage, setError, addSmurf } = props
 
   const handleChange = (e) => {
